@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="example.daos.HomeworkD" %>
-<%@ page import="example.model.Homework" %>
+<%@ page import="example.beans.Homework" %>
 <%@ page import="java.util.List" %>
 <%
     String path = request.getContextPath();

@@ -1,7 +1,9 @@
 package example.daos;
 
 import example.database.JdbcUtil;
-import example.model.Submit;
+import example.beans.Submit;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -75,7 +77,14 @@ public class SubmitD {
             ResultSet rs = pstmt.executeQuery();
 
             while(rs.next()) {
-                Submit ss=new Submit(rs.getString(1),rs.getString(2),rs.getString(3));
+                //读取配置文件实例化一个IOC容器
+                ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+                //从容器中获取对象
+                Submit ss=(Submit)context.getBean("submit");
+                ss.setHname(rs.getString(1));
+                ss.setSname(rs.getString(2));
+                ss.setShis(rs.getString(3));
+//                Submit ss=new Submit(rs.getString(1),rs.getString(2),rs.getString(3));
                 submits.add(ss);
             }
 

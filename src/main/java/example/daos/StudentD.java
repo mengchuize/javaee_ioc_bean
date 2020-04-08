@@ -1,7 +1,7 @@
 package example.daos;
 
 import example.database.JdbcUtil;
-import example.model.Student;
+import example.beans.Student;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

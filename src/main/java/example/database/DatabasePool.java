@@ -2,6 +2,9 @@ package example.database;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import example.beans.Homework;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DatabasePool {
 
@@ -17,11 +20,16 @@ public class DatabasePool {
         synchronized (DatabasePool.class){
             if(hikariDatasource==null)
             {
+                //读取配置文件实例化一个IOC容器
+                ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+                //从容器中获取对象
+                JdbcBeans t=(JdbcBeans)context.getBean("jdbc");
+
                 HikariConfig hikariconfig=new HikariConfig();
-                hikariconfig.setUsername("root");
-                hikariconfig.setPassword("Mengchuize");
-                hikariconfig.setDriverClassName("com.mysql.jdbc.Driver");
-                hikariconfig.setJdbcUrl("jdbc:mysql://localhost:3306/newdatabase?serverTimezone=UTC");
+                hikariconfig.setUsername(t.Username);
+                hikariconfig.setPassword(t.Password);
+                hikariconfig.setDriverClassName(t.DriverClassName);
+                hikariconfig.setJdbcUrl(t.JdbcUrl);
                 hikariDatasource=new HikariDataSource(hikariconfig);
                 return hikariDatasource;
             }

@@ -2,8 +2,8 @@ package example.controller;
 
 import example.daos.StudentD;
 import example.daos.TeacherD;
-import example.model.Student;
-import example.model.Teacher;
+import example.beans.Student;
+import example.beans.Teacher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

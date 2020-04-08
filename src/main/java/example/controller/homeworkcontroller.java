@@ -1,9 +1,9 @@
 package example.controller;
 
 import example.daos.HomeworkD;
-import example.daos.TeacherD;
-import example.model.Homework;
-import example.model.Teacher;
+import example.beans.Homework;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,7 +28,15 @@ public class homeworkcontroller {
         java.sql.Date edate=strToDate(request.getParameter("edate"));
 
         HomeworkD td=new HomeworkD();
-        Homework t=new Homework(hname,btime,edate,request.getSession().getAttribute("tname").toString(),0);
+        //读取配置文件实例化一个IOC容器
+        ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+        //从容器中获取对象
+        Homework t=(Homework)context.getBean("homework");
+        t.setHname(hname);
+        t.setHbegintime(btime);
+        t.setHendtime(edate);
+        t.setTname(request.getSession().getAttribute("tname").toString());
+//        Homework t=new Homework(hname,btime,edate,request.getSession().getAttribute("tname").toString(),0);
         td.add(t);
         request.getRequestDispatcher( "/statics/submitsuccess.jsp").forward(request,response);
     }

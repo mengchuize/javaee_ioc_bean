@@ -1,7 +1,7 @@
 package example.daos;
 
 import example.database.JdbcUtil;
-import example.model.Homework;
+import example.beans.Homework;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;

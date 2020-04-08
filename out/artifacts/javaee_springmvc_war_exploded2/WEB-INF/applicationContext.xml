@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="homework" class="example.beans.Homework">
+        <property name="hname" value="default"></property>
+        <property name="hbegintime" value="default"></property>
+        <property name="hendtime" value="default"></property>
+        <property name="tname" value="default"></property>
+        <property name="hsubmitnum" value="0"></property>
+    </bean>
+    <bean id="submit" class="example.beans.Submit">
+        <property name="hname" value="default"></property>
+        <property name="sname" value="default"></property>
+        <property name="shis" value="default"></property>
+    </bean>
+    <bean id="student" class="example.beans.Student">
+        <property name="sname" value="default"></property>
+        <property name="spassword" value="123456"></property>
+        <property name="susername" value="default"></property>
+    </bean>
+    <bean id="teacher" class="example.beans.Teacher">
+        <property name="tname" value="default"></property>
+        <property name="tpassword" value="123456"></property>
+        <property name="tusername" value="default"></property>
+    </bean>
+</beans>

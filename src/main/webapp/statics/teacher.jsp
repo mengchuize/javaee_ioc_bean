@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="example.daos.HomeworkD" %>
-<%@ page import="example.model.Homework" %>
+<%@ page import="example.beans.Homework" %>
 <%@ page import="java.util.List" %>
 <%@ page import="example.daos.StudentD" %>
-<%@ page import="example.model.Student" %>
+<%@ page import="example.beans.Student" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";

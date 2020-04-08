@@ -3,7 +3,7 @@ package example.daos;
 
 import example.database.JdbcUtil;
 
-import example.model.Teacher;
+import example.beans.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
